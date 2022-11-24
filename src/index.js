@@ -1,17 +1,45 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDom from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+function Booklist(){
+  const header = 'Amazon Best Sellers'
+  const title = 'Our most popular products based on sales. Updated hourly.'
+  return(
+    <section >
+      <div className='header'>
+      <h1>{header} </h1>
+      <h4>{title}</h4>
+      </div>
+      <div  className='booklist'>
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      </div>
+    </section>
+  )
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Book = () =>{
+  const image = 'https://images-na.ssl-images-amazon.com/images/I/91MowzF+WZL._AC_UL300_SR300,200_.jpg'
+  const title = 'The light we Carry'
+  const author = 'Michelle Obama'
+  return(
+    <article className='book '>
+      <img 
+    src= {image}
+    alt='#1'
+    />
+    <h1> {title} </h1>
+    <h4 > {author} </h4>
+    </article>
+    
+  )
+}
+
+ReactDom.render(<Booklist />, document.getElementById('root'));
+
